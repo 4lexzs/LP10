@@ -15,9 +15,9 @@
 
 Welche 3 *features* sind die wichtigsten Ihres Projektes? Wie können Sie die Machbarkeit dieser in jeweils 45' am einfachsten beweisen?
 
-- [ ] *make or break feature* 1: Aufgaben erstellen, anzeigen, ändern und löschen können
-- [ ] *make or break feature* 2: Aufgaben in einer Datenbank speichern
-- [ ] *make or break feature* 3: Eine einfache Benutzeroberfläche mit Buttons und Feldern
+- [X] *make or break feature* 1: Aufgaben erstellen, anzeigen, ändern und löschen können
+- [X] *make or break feature* 2: Aufgaben in einer Datenbank speichern
+- [X] *make or break feature* 3: Eine einfache Benutzeroberfläche mit Buttons und Feldern
 
 
 Heute habe ich mein Projekt geplant und überlegt, was es können soll. Ich habe ein kleines Testprogramm in der Konsole gebaut, das zeigt, wie man Aufgaben erstellen, anzeigen, ändern und löschen kann. Das Programm ist noch sehr einfach, aber es beweist, dass ich die Grundfunktionen bauen kann. Ich habe eine Klasse für Aufgaben erstellt mit Eigenschaften wie Titel, Beschreibung und Status.
@@ -28,28 +28,27 @@ Heute habe ich mein Projekt geplant und überlegt, was es können soll. Ich habe
 
 Ausgehend von Ihren Erfahrungen vom 25.4, welche *features* brauchen noch mehr Recherche? (Sie können auch mehrere AP für ein *feature* aufwenden.)
 
-- [ ] lernen, wie ich meine App mit einer Datenbank verbinde.
-- [ ] lernen, wie ich Fenster mit Buttons und Textfeldern erstelle.
-- [ ] lernen, wie ich meinen Code sauber organisiere.
-- [ ] App-Oberfläche 
+- [X] lernen, wie ich meine App mit einer Datenbank verbinde.
+- [X] lernen, wie ich Fenster mit Buttons und Textfeldern erstelle.
+- [X] lernen, wie ich meinen Code sauber organisiere.
+- [X] App-Oberfläche 
 
-✍️ Heute habe ich... (50-100 Wörter)
-
-☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen.
+Heute habe ich recherchiert, wie ich Entity Framework Core benutze. Ich habe die nötigen Pakete installiert und ein einfaches Datenbank-Modell für meine Aufgaben-App erstellt. Ich habe gelernt, wie man Daten definiert, eine Datenbank-Verbindung aufbaut und wie man Daten speichert und abruft. Ausserdem habe ich erste Skizzen meiner App auf Papier gezeichnet, um ein besseres Gefühl für das Layout und die Benutzerführung zu bekommen.
 
 ## 9.5
 
-Planen Sie nun Ihr Projekt, sodass die *Kern-Funktionalität* in 3 Sitzungen realisiert ist. Schreiben Sie dazu zunächst 3 solche übergeordneten Kern-Funktionalitäten auf: 
+Planen Sie nun Ihr Projekt, sodass die *Kern-Funktionalität* in 3 Sitzungen realisiert ist. Schreiben Sie dazu zunächst 3 solche übergeordneten Kern-Funktionalitäten auf:
 
-1. Kern-Funktionalität
-2. Kern-Funktionalität
-3. Kern-Funktionalität
+1. Datenbank-Anbindung mit Entity Framework Core
+2. CRUD-Funktionalität (Erstellen, Lesen, Aktualisieren, Löschen von Aufgaben)
+3. Benutzeroberfläche mit WPF und MVVM-Muster
 
-Diese Kern-Funktionalitäten brechen Sie nun in etwa 4 AP je herunter. Versuchen Sie jetzt bereits, auch die Sitzung vom 16.5 und 23.5 zu planen (im Wissen, dass Sie kleine Anpassungen an Ihrer Planung vornehmen können).
+Diese Kern-Funktionalitäten breche ich nun in etwa 4 AP je herunter:
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Erstellen des TaskDbContext und Konfiguration der Datenbankverbindung
+- [ ] Design der TaskService-Klasse mit grundlegenden CRUD-Methoden
+- [ ] Einrichten der Datenbankmigrationen und Testen der Datenbankfunktionalität
+- [ ] Implementieren des Repositories für die Trennung von Datenzugriff und Geschäftslogik
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
