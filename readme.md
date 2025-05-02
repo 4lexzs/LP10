@@ -5,19 +5,22 @@
 ## Grob-Planung
 
 1. Welche Programmiersprache möchten Sie verwenden? Was denken Sie, wo Ihre Zeit und Übung am sinnvollsten ist?
+  Ich will mit C# programmieren, weil ich diese Sprache besser lernen möchte.
 1. Welche Datenbank-Technologie möchten Sie üben? Fühlen Sie sich sicher mit SQL und möchten etwas Neues ausprobieren; oder möchten Sie sich weiter mit SQL beschäftigen?
+   Bei Datenbanken will ich SQL weiter üben und mit Entity Framework arbeiten, um Daten in meiner App zu speichern.
 1. Was wäre ein geeignetes Abschluss-Projekt?
+   Als Projekt möchte ich eine Aufgaben-App bauen, mit der man To-Do-Listen erstellen und verwalten kann.
 
 ## 25.4
 
 Welche 3 *features* sind die wichtigsten Ihres Projektes? Wie können Sie die Machbarkeit dieser in jeweils 45' am einfachsten beweisen?
 
-- [ ] *make or break feature* 1:
-- [ ] *make or break feature* 2:
-- [ ] *make or break feature* 3:
+- [ ] *make or break feature* 1: Aufgaben erstellen, anzeigen, ändern und löschen können
+- [ ] *make or break feature* 2: Aufgaben in einer Datenbank speichern
+- [ ] *make or break feature* 3: Eine einfache Benutzeroberfläche mit Buttons und Feldern
 
 
-✍️ Heute habe ich... (50-100 Wörter)
+Heute habe ich mein Projekt geplant und überlegt, was es können soll. Ich habe ein kleines Testprogramm in der Konsole gebaut, das zeigt, wie man Aufgaben erstellen, anzeigen, ändern und löschen kann. Das Programm ist noch sehr einfach, aber es beweist, dass ich die Grundfunktionen bauen kann. Ich habe eine Klasse für Aufgaben erstellt mit Eigenschaften wie Titel, Beschreibung und Status.
 
 ☝️ Vergessen Sie nicht, den Code von heute auf github hochzuladen. Ggf. bietet es sich an, für die Code-Schnipsel einen eigenen Ordner `exploration` zu erstellen.
 
