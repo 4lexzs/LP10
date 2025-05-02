@@ -28,10 +28,10 @@ Heute habe ich mein Projekt geplant und überlegt, was es können soll. Ich habe
 
 Ausgehend von Ihren Erfahrungen vom 25.4, welche *features* brauchen noch mehr Recherche? (Sie können auch mehrere AP für ein *feature* aufwenden.)
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ... (📵)
+- [ ] lernen, wie ich meine App mit einer Datenbank verbinde.
+- [ ] lernen, wie ich Fenster mit Buttons und Textfeldern erstelle.
+- [ ] lernen, wie ich meinen Code sauber organisiere.
+- [ ] App-Oberfläche 
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
