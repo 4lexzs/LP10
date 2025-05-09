@@ -54,10 +54,10 @@ Heute habe ich an der Datenbank-Anbindung gearbeitet. Ich habe den TaskDbContext
 
 ## 16.5
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Erstellen eines MainViewModel und Implementierung der MVVM-Struktur
+- [ ] Erstellen der MainWindow.xaml mit grundlegenden UI-Elementen
+- [ ] Implementierung der Datenbindung zwischen ViewModel und View
+- [ ] Implementierung der Benutzerinteraktionen (Buttons, Eingabefelder, etc.)
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
