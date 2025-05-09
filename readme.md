@@ -45,14 +45,12 @@ Planen Sie nun Ihr Projekt, sodass die *Kern-Funktionalität* in 3 Sitzungen rea
 
 Diese Kern-Funktionalitäten breche ich nun in etwa 4 AP je herunter:
 
-- [ ] Erstellen des TaskDbContext und Konfiguration der Datenbankverbindung
-- [ ] Design der TaskService-Klasse mit grundlegenden CRUD-Methoden
-- [ ] Einrichten der Datenbankmigrationen und Testen der Datenbankfunktionalität
-- [ ] Implementieren des Repositories für die Trennung von Datenzugriff und Geschäftslogik
+- [X] Erstellen des TaskDbContext und Konfiguration der Datenbankverbindung
+- [X] Design der TaskService-Klasse mit grundlegenden CRUD-Methoden
+- [X] Einrichten der Datenbankmigrationen und Testen der Datenbankfunktionalität
+- [X] Implementieren des Repositories für die Trennung von Datenzugriff und Geschäftslogik
 
-✍️ Heute habe ich... (50-100 Wörter)
-
-☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
+Heute habe ich an der Datenbank-Anbindung gearbeitet. Ich habe den TaskDbContext erweitert und erste CRUD-Operationen im TaskService implementiert. Ausserdem habe ich begonnen, das Repository-Muster umzusetzen, indem ich ein Interface (ITaskRepository) und dessen Implementierung (TaskRepository) erstellt habe. Diese Struktur wird mir helfen, die Datenzugriffsschicht sauber von der Geschäftslogik zu trennen. Meine App kann jetzt theoretisch Aufgaben in der Datenbank speichern und wieder abrufen.
 
 ## 16.5
 
