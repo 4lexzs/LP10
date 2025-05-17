@@ -54,12 +54,12 @@ Heute habe ich an der Datenbank-Anbindung gearbeitet. Ich habe den TaskDbContext
 
 ## 16.5
 
-- [ ] Erstellen eines MainViewModel und Implementierung der MVVM-Struktur
-- [ ] Erstellen der MainWindow.xaml mit grundlegenden UI-Elementen
-- [ ] Implementierung der Datenbindung zwischen ViewModel und View
-- [ ] Implementierung der Benutzerinteraktionen (Buttons, Eingabefelder, etc.)
+- [X] Erstellen eines MainViewModel und Implementierung der MVVM-Struktur
+- [X] Erstellen der MainWindow.xaml mit grundlegenden UI-Elementen
+- [X] Implementierung der Datenbindung zwischen ViewModel und View
+- [X] Implementierung der Benutzerinteraktionen (Buttons, Eingabefelder, etc.)
 
-✍️ Heute habe ich... (50-100 Wörter)
+Heute habe ich die Benutzeroberfläche meiner Aufgaben-App erstellt und die MVVM-Architektur implementiert. Ich habe ein MainViewModel entwickelt, das die Geschäftslogik von der UI trennt, und eine WPF-Oberfläche mit Eingabefeldern, einer Liste für Aufgaben und Buttons für Interaktionen gebaut. Die Datenbindung funktioniert gut und ich kann jetzt Aufgaben hinzufügen, anzeigen, als erledigt markieren und löschen. Meine App hat jetzt eine vollständige grafische Benutzeroberfläche.
 
 ☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
