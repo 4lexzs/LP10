@@ -65,10 +65,10 @@ Heute habe ich die Benutzeroberfläche meiner Aufgaben-App erstellt und die MVVM
 
 ## 23.5
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+- [ ] Hinzufügen von Kategorien für Aufgaben
+- [ ] Implementieren von Filteroptionen nach Status und Kategorie
+- [ ] Speichern und Laden von Benutzereinstellungen
+- [ ] Verbessern des Designs und der Benutzerfreundlichkeit
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
