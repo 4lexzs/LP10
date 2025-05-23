@@ -61,18 +61,14 @@ Heute habe ich an der Datenbank-Anbindung gearbeitet. Ich habe den TaskDbContext
 
 Heute habe ich die Benutzeroberfläche meiner Aufgaben-App erstellt und die MVVM-Architektur implementiert. Ich habe ein MainViewModel entwickelt, das die Geschäftslogik von der UI trennt, und eine WPF-Oberfläche mit Eingabefeldern, einer Liste für Aufgaben und Buttons für Interaktionen gebaut. Die Datenbindung funktioniert gut und ich kann jetzt Aufgaben hinzufügen, anzeigen, als erledigt markieren und löschen. Meine App hat jetzt eine vollständige grafische Benutzeroberfläche.
 
-☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
-
 ## 23.5
 
-- [ ] Hinzufügen von Kategorien für Aufgaben
-- [ ] Implementieren von Filteroptionen nach Status und Kategorie
-- [ ] Speichern und Laden von Benutzereinstellungen
-- [ ] Verbessern des Designs und der Benutzerfreundlichkeit
+- [x] Hinzufügen von Kategorien für Aufgaben
+- [x] Implementieren von Filteroptionen nach Status und Kategorie
+- [x] Hinzufügen von Prioritätsstufen für Aufgaben
+- [x] Verbessern des Designs und der Benutzerfreundlichkeit
 
-✍️ Heute habe ich... (50-100 Wörter)
-
-☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
+Heute habe ich die Funktionalität meiner Aufgaben-App deutlich erweitert. Ich habe Kategorien und Prioritätsstufen für Aufgaben hinzugefügt, damit Benutzer ihre Aufgaben besser organisieren können. Ausserdem habe ich Filter implementiert, mit denen man Aufgaben nach Kategorie filtern und erledigte Aufgaben ein-/ausblenden kann. Das Design wurde verbessert mit farbcodierten Prioritäten und einer übersichtlicheren Darstellung. Die App ist jetzt viel nützlicher für die tägliche Aufgabenverwaltung.
 
 ## 6.6
 
