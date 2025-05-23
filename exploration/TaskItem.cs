@@ -14,5 +14,7 @@ namespace TaskManager.Models
         public bool IsCompleted { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? CompletedAt { get; set; }
+        public string Category { get; set; } = "Allgemein";
+        public int Priority { get; set; } = 1; // 1 = Niedrig, 2 = Mittel, 3 = Hoch
     }
 }
