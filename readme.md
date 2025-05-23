@@ -74,10 +74,15 @@ Heute habe ich die Funktionalität meiner Aufgaben-App deutlich erweitert. Ich h
 
 Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Allerdings gibt es sicher noch Teile, welche "schöner" werden können: Layout, Code, Architektur... beschreiben Sie kurz den Stand Ihres Projekts, und leiten Sie daraus 6 solche "kosmetischen" AP für den 6.6 und den 13.6 ab.
 
-- [ ] ...
-- [ ] ...
-- [ ] ...
-- [ ] ...
+**Stand meines Projekts:**
+Meine Aufgaben-App funktioniert bereits vollständig. Benutzer können Aufgaben erstellen, bearbeiten, löschen und als erledigt markieren. Die App hat Kategorien, Prioritätsstufen und Filterfunktionen. Die Daten werden in einer SQLite-Datenbank gespeichert und die App folgt dem MVVM-Muster. Allerdings gibt es noch Verbesserungsmöglichkeiten beim Design, der Benutzerfreundlichkeit und der Code-Qualität.
+
+- [ ] Verbesserung des UI-Designs mit modernen Farben und besseren Layouts
+- [ ] Hinzufügen einer Suchfunktion für Aufgaben nach Titel und Beschreibung
+- [ ] Implementierung von Fälligkeitsdaten für Aufgaben mit Erinnerungen
+- [ ] Code-Bereinigung und Optimierung der Performance
+- [ ] Hinzufügen von Keyboard-Shortcuts (Enter zum Hinzufügen, Delete zum Löschen)
+- [ ] Verbesserung der Benutzerfreundlichkeit mit besseren Tooltips und Feedback
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
