@@ -16,5 +16,20 @@ namespace TaskManager.Models
         public DateTime? CompletedAt { get; set; }
         public string Category { get; set; } = "Allgemein";
         public int Priority { get; set; } = 1; // 1 = Niedrig, 2 = Mittel, 3 = Hoch
+        public DateTime? DueDate { get; set; }
+
+        // Hilfsmethode für die Suche
+        public bool ContainsSearchTerm(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return true;
+
+            searchTerm = searchTerm.ToLower();
+            return Title.ToLower().Contains(searchTerm) ||
+                   Description.ToLower().Contains(searchTerm);
+        }
+
+        // Eigenschaft für Fälligkeitsstatus
+        public bool IsOverdue => DueDate.HasValue && DueDate.Value < DateTime.Now && !IsCompleted;
     }
 }
