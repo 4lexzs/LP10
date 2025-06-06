@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Linq;
+using System;
 using TaskManager.Models;
 using TaskManager.Services;
 
@@ -16,8 +17,10 @@ namespace TaskManager.ViewModels
         private string _newTaskDescription = string.Empty;
         private string _newTaskCategory = "Allgemein";
         private int _newTaskPriority = 1;
+        private DateTime? _newTaskDueDate = null;
         private string _selectedCategory = "Alle";
         private bool _showCompletedTasks = true;
+        private string _searchText = string.Empty;
 
         public ObservableCollection<TaskItem> Tasks
         {
@@ -90,6 +93,16 @@ namespace TaskManager.ViewModels
             }
         }
 
+        public DateTime? NewTaskDueDate
+        {
+            get { return _newTaskDueDate; }
+            set
+            {
+                _newTaskDueDate = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string SelectedCategory
         {
             get { return _selectedCategory; }
@@ -107,6 +120,17 @@ namespace TaskManager.ViewModels
             set
             {
                 _showCompletedTasks = value;
+                OnPropertyChanged();
+                ApplyFilters();
+            }
+        }
+
+        public string SearchText
+        {
+            get { return _searchText; }
+            set
+            {
+                _searchText = value;
                 OnPropertyChanged();
                 ApplyFilters();
             }
@@ -133,7 +157,8 @@ namespace TaskManager.ViewModels
                     Title = NewTaskTitle,
                     Description = NewTaskDescription,
                     Category = NewTaskCategory,
-                    Priority = NewTaskPriority
+                    Priority = NewTaskPriority,
+                    DueDate = NewTaskDueDate
                 };
 
                 _taskRepository.AddTask(newTask);
@@ -144,6 +169,7 @@ namespace TaskManager.ViewModels
                 NewTaskDescription = string.Empty;
                 NewTaskCategory = "Allgemein";
                 NewTaskPriority = 1;
+                NewTaskDueDate = null;
             }
         }
 
@@ -190,8 +216,18 @@ namespace TaskManager.ViewModels
                 filtered = filtered.Where(t => !t.IsCompleted);
             }
 
-            // Sort by priority (high to low) and creation date
-            filtered = filtered.OrderByDescending(t => t.Priority).ThenBy(t => t.CreatedAt);
+            // Filter by search text
+            if (!string.IsNullOrWhiteSpace(SearchText))
+            {
+                filtered = filtered.Where(t => t.ContainsSearchTerm(SearchText));
+            }
+
+            // Sort by overdue status, priority and creation date
+            filtered = filtered
+                .OrderByDescending(t => t.IsOverdue)
+                .ThenByDescending(t => t.Priority)
+                .ThenBy(t => t.DueDate ?? DateTime.MaxValue)
+                .ThenBy(t => t.CreatedAt);
 
             FilteredTasks = new ObservableCollection<TaskItem>(filtered);
         }
