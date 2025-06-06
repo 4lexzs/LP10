@@ -84,7 +84,7 @@ Meine Aufgaben-App funktioniert bereits vollständig. Benutzer können Aufgaben 
 - [X] Hinzufügen von Keyboard-Shortcuts (Enter zum Hinzufügen, Delete zum Löschen)
 - [X] Verbesserung der Benutzerfreundlichkeit mit besseren Tooltips und Feedback
 
-✍️ Heute habe ich... (50-100 Wörter)
+Heute habe ich das UI-Design meiner App deutlich verbessert. Ich habe modernere Farben eingesetzt, die Layouts optimiert und die Benutzeroberfläche benutzerfreundlicher gestaltet. Ausserdem habe ich Keyboard-Shortcuts implementiert - jetzt kann man mit Enter neue Aufgaben hinzufügen und mit Delete markierte Aufgaben löschen. Die Code-Struktur wurde bereinigt und Performance-Optimierungen vorgenommen. Tooltips und besseres visuelles Feedback machen die App jetzt professioneller und einfacher zu bedienen.
 
 ☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
@@ -93,7 +93,6 @@ Meine Aufgaben-App funktioniert bereits vollständig. Benutzer können Aufgaben 
 - [ ] Suchfunktion implementiert
 - [ ] Fälligkeitsdaten hinzugefügt
 
-Heute habe ich die Suchfunktion fertig implementiert, sodass man Aufgaben nach Titel und Beschreibung filtern kann. Ausserdem habe ich Fälligkeitsdaten für Aufgaben hinzugefügt - überfällige Aufgaben werden automatisch rot hervorgehoben. Die App ist jetzt deutlich nützlicher für die tägliche Aufgabenverwaltung. Der Code wurde auf GitHub hochgeladen und die Datenbankstruktur entsprechend erweitert.
 
 ☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
