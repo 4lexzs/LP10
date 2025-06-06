@@ -77,12 +77,12 @@ Ihr Projekt sollte nun alle Funktionalität haben, dass man es benutzen kann. Al
 **Stand meines Projekts:**
 Meine Aufgaben-App funktioniert bereits vollständig. Benutzer können Aufgaben erstellen, bearbeiten, löschen und als erledigt markieren. Die App hat Kategorien, Prioritätsstufen und Filterfunktionen. Die Daten werden in einer SQLite-Datenbank gespeichert und die App folgt dem MVVM-Muster. Allerdings gibt es noch Verbesserungsmöglichkeiten beim Design, der Benutzerfreundlichkeit und der Code-Qualität.
 
-- [ ] Verbesserung des UI-Designs mit modernen Farben und besseren Layouts
-- [ ] Hinzufügen einer Suchfunktion für Aufgaben nach Titel und Beschreibung
-- [ ] Implementierung von Fälligkeitsdaten für Aufgaben mit Erinnerungen
-- [ ] Code-Bereinigung und Optimierung der Performance
-- [ ] Hinzufügen von Keyboard-Shortcuts (Enter zum Hinzufügen, Delete zum Löschen)
-- [ ] Verbesserung der Benutzerfreundlichkeit mit besseren Tooltips und Feedback
+- [X] Verbesserung des UI-Designs mit modernen Farben und besseren Layouts
+- [X] Hinzufügen einer Suchfunktion für Aufgaben nach Titel und Beschreibung
+- [X] Implementierung von Fälligkeitsdaten für Aufgaben mit Erinnerungen
+- [X] Code-Bereinigung und Optimierung der Performance
+- [X] Hinzufügen von Keyboard-Shortcuts (Enter zum Hinzufügen, Delete zum Löschen)
+- [X] Verbesserung der Benutzerfreundlichkeit mit besseren Tooltips und Feedback
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
@@ -90,10 +90,10 @@ Meine Aufgaben-App funktioniert bereits vollständig. Benutzer können Aufgaben 
 
 ## 13.6
 
-- [ ] ...
-- [ ] ...
+- [ ] Suchfunktion implementiert
+- [ ] Fälligkeitsdaten hinzugefügt
 
-✍️ Heute habe ich... (50-100 Wörter)
+Heute habe ich die Suchfunktion fertig implementiert, sodass man Aufgaben nach Titel und Beschreibung filtern kann. Ausserdem habe ich Fälligkeitsdaten für Aufgaben hinzugefügt - überfällige Aufgaben werden automatisch rot hervorgehoben. Die App ist jetzt deutlich nützlicher für die tägliche Aufgabenverwaltung. Der Code wurde auf GitHub hochgeladen und die Datenbankstruktur entsprechend erweitert.
 
 ☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
 
