@@ -1,184 +1,146 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Linq;
-using System;
+using System.Runtime.CompilerServices;
+using System.Windows;
 using TaskManager.Models;
-using TaskManager.Services;
 
 namespace TaskManager.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private readonly ITaskRepository _taskRepository;
-        private ObservableCollection<TaskItem> _tasks = new ObservableCollection<TaskItem>();
-        private ObservableCollection<TaskItem> _filteredTasks = new ObservableCollection<TaskItem>();
         private string _newTaskTitle = string.Empty;
         private string _newTaskDescription = string.Empty;
         private string _newTaskCategory = "Allgemein";
         private int _newTaskPriority = 1;
-        private DateTime? _newTaskDueDate = null;
-        private string _selectedCategory = "Alle";
-        private bool _showCompletedTasks = true;
+        private DateTime? _newTaskDueDate;
         private string _searchText = string.Empty;
+        private string _selectedCategory = "Alle";
+        private bool _showCompletedTasks = false;
 
-        public ObservableCollection<TaskItem> Tasks
+        public MainViewModel()
         {
-            get { return _tasks; }
-            set
-            {
-                _tasks = value;
-                OnPropertyChanged();
-                ApplyFilters();
-            }
+            Tasks = new ObservableCollection<TaskItem>();
+            FilteredTasks = new ObservableCollection<TaskItem>();
+            Categories = new ObservableCollection<string> { "Allgemein", "Arbeit", "Privat", "Shopping", "Lernen" };
+            FilterCategories = new ObservableCollection<string> { "Alle", "Allgemein", "Arbeit", "Privat", "Shopping", "Lernen" };
         }
 
-        public ObservableCollection<TaskItem> FilteredTasks
-        {
-            get { return _filteredTasks; }
-            set
-            {
-                _filteredTasks = value;
-                OnPropertyChanged();
-            }
-        }
+        // Collections
+        public ObservableCollection<TaskItem> Tasks { get; }
+        public ObservableCollection<TaskItem> FilteredTasks { get; }
+        public ObservableCollection<string> Categories { get; }
+        public ObservableCollection<string> FilterCategories { get; }
 
-        public ObservableCollection<string> Categories { get; set; } = new ObservableCollection<string>
-        {
-            "Allgemein", "Arbeit", "Privat", "Studium", "Hobby"
-        };
-
-        public ObservableCollection<string> FilterCategories { get; set; } = new ObservableCollection<string>
-        {
-            "Alle", "Allgemein", "Arbeit", "Privat", "Studium", "Hobby"
-        };
-
+        // Properties für neue Aufgabe
         public string NewTaskTitle
         {
-            get { return _newTaskTitle; }
-            set
-            {
-                _newTaskTitle = value;
-                OnPropertyChanged();
-            }
+            get => _newTaskTitle;
+            set => SetProperty(ref _newTaskTitle, value);
         }
 
         public string NewTaskDescription
         {
-            get { return _newTaskDescription; }
-            set
-            {
-                _newTaskDescription = value;
-                OnPropertyChanged();
-            }
+            get => _newTaskDescription;
+            set => SetProperty(ref _newTaskDescription, value);
         }
 
         public string NewTaskCategory
         {
-            get { return _newTaskCategory; }
-            set
-            {
-                _newTaskCategory = value;
-                OnPropertyChanged();
-            }
+            get => _newTaskCategory;
+            set => SetProperty(ref _newTaskCategory, value);
         }
 
         public int NewTaskPriority
         {
-            get { return _newTaskPriority; }
-            set
-            {
-                _newTaskPriority = value;
-                OnPropertyChanged();
-            }
+            get => _newTaskPriority;
+            set => SetProperty(ref _newTaskPriority, value);
         }
 
         public DateTime? NewTaskDueDate
         {
-            get { return _newTaskDueDate; }
+            get => _newTaskDueDate;
+            set => SetProperty(ref _newTaskDueDate, value);
+        }
+
+        // Filter Properties
+        public string SearchText
+        {
+            get => _searchText;
             set
             {
-                _newTaskDueDate = value;
-                OnPropertyChanged();
+                if (SetProperty(ref _searchText, value))
+                {
+                    FilterTasks();
+                }
             }
         }
 
         public string SelectedCategory
         {
-            get { return _selectedCategory; }
+            get => _selectedCategory;
             set
             {
-                _selectedCategory = value;
-                OnPropertyChanged();
-                ApplyFilters();
+                if (SetProperty(ref _selectedCategory, value))
+                {
+                    FilterTasks();
+                }
             }
         }
 
         public bool ShowCompletedTasks
         {
-            get { return _showCompletedTasks; }
+            get => _showCompletedTasks;
             set
             {
-                _showCompletedTasks = value;
-                OnPropertyChanged();
-                ApplyFilters();
+                if (SetProperty(ref _showCompletedTasks, value))
+                {
+                    FilterTasks();
+                }
             }
         }
 
-        public string SearchText
-        {
-            get { return _searchText; }
-            set
-            {
-                _searchText = value;
-                OnPropertyChanged();
-                ApplyFilters();
-            }
-        }
-
-        public MainViewModel()
-        {
-            _taskRepository = new TaskRepository();
-            LoadTasks();
-        }
-
-        public void LoadTasks()
-        {
-            var taskList = _taskRepository.GetAllTasks();
-            Tasks = new ObservableCollection<TaskItem>(taskList);
-        }
-
+        // Methods
         public void AddTask()
         {
-            if (!string.IsNullOrWhiteSpace(NewTaskTitle))
+            if (string.IsNullOrWhiteSpace(NewTaskTitle))
             {
-                var newTask = new TaskItem
-                {
-                    Title = NewTaskTitle,
-                    Description = NewTaskDescription,
-                    Category = NewTaskCategory,
-                    Priority = NewTaskPriority,
-                    DueDate = NewTaskDueDate
-                };
-
-                _taskRepository.AddTask(newTask);
-                LoadTasks();
-
-                // Clear input fields
-                NewTaskTitle = string.Empty;
-                NewTaskDescription = string.Empty;
-                NewTaskCategory = "Allgemein";
-                NewTaskPriority = 1;
-                NewTaskDueDate = null;
+                MessageBox.Show("Bitte geben Sie einen Titel für die Aufgabe ein.", 
+                              "Fehler", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
             }
+
+            var newTask = new TaskItem
+            {
+                Id = Tasks.Count > 0 ? Tasks.Max(t => t.Id) + 1 : 1,
+                Title = NewTaskTitle.Trim(),
+                Description = NewTaskDescription?.Trim() ?? string.Empty,
+                Category = NewTaskCategory ?? "Allgemein",
+                Priority = NewTaskPriority,
+                DueDate = NewTaskDueDate,
+                CreatedAt = DateTime.Now,
+                IsCompleted = false
+            };
+
+            Tasks.Add(newTask);
+
+            // Felder zurücksetzen
+            NewTaskTitle = string.Empty;
+            NewTaskDescription = string.Empty;
+            NewTaskCategory = "Allgemein";
+            NewTaskPriority = 1;
+            NewTaskDueDate = null;
+
+            FilterTasks();
         }
 
         public void DeleteTask(TaskItem task)
         {
             if (task != null)
             {
-                _taskRepository.DeleteTask(task.Id);
-                LoadTasks();
+                Tasks.Remove(task);
+                FilterTasks();
             }
         }
 
@@ -187,49 +149,40 @@ namespace TaskManager.ViewModels
             if (task != null)
             {
                 task.IsCompleted = !task.IsCompleted;
-                if (task.IsCompleted)
-                {
-                    task.CompletedAt = System.DateTime.Now;
-                }
-                else
-                {
-                    task.CompletedAt = null;
-                }
-                _taskRepository.UpdateTask(task);
-                LoadTasks();
+                FilterTasks();
             }
         }
 
-        private void ApplyFilters()
+        private void FilterTasks()
         {
-            var filtered = Tasks.AsEnumerable();
+            var filteredTasks = Tasks.AsEnumerable();
 
-            // Filter by category
-            if (SelectedCategory != "Alle")
+            // Filter nach Kategorie
+            if (!string.IsNullOrEmpty(SelectedCategory) && SelectedCategory != "Alle")
             {
-                filtered = filtered.Where(t => t.Category == SelectedCategory);
+                filteredTasks = filteredTasks.Where(t => t.Category == SelectedCategory);
             }
 
-            // Filter by completion status
-            if (!ShowCompletedTasks)
-            {
-                filtered = filtered.Where(t => !t.IsCompleted);
-            }
-
-            // Filter by search text
+            // Filter nach Suchtext
             if (!string.IsNullOrWhiteSpace(SearchText))
             {
-                filtered = filtered.Where(t => t.ContainsSearchTerm(SearchText));
+                var searchLower = SearchText.ToLower();
+                filteredTasks = filteredTasks.Where(t => 
+                    t.Title.ToLower().Contains(searchLower) || 
+                    (t.Description?.ToLower().Contains(searchLower) ?? false));
             }
 
-            // Sort by overdue status, priority and creation date
-            filtered = filtered
-                .OrderByDescending(t => t.IsOverdue)
-                .ThenByDescending(t => t.Priority)
-                .ThenBy(t => t.DueDate ?? DateTime.MaxValue)
-                .ThenBy(t => t.CreatedAt);
+            // Filter nach erledigten Aufgaben
+            if (!ShowCompletedTasks)
+            {
+                filteredTasks = filteredTasks.Where(t => !t.IsCompleted);
+            }
 
-            FilteredTasks = new ObservableCollection<TaskItem>(filtered);
+            FilteredTasks.Clear();
+            foreach (var task in filteredTasks.OrderByDescending(t => t.CreatedAt))
+            {
+                FilteredTasks.Add(task);
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -237,6 +190,14 @@ namespace TaskManager.ViewModels
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
+        {
+            if (Equals(field, value)) return false;
+            field = value;
+            OnPropertyChanged(propertyName);
+            return true;
         }
     }
 }
