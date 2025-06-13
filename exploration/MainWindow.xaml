@@ -121,8 +121,8 @@
                              Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                              Padding="10"
                              FontSize="14"
-                             ToolTip="🔍 Aufgaben durchsuchen..."
-                             Margin="0,0,15,0"/>
+                             Margin="0,0,15,0"
+                             ToolTip="🔍 Aufgaben durchsuchen..."/>
 
                     <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0,0,15,0">
                         <TextBlock Text="Kategorie:" VerticalAlignment="Center" Margin="0,0,10,0" FontWeight="SemiBold"/>
@@ -179,6 +179,7 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
                                     <CheckBox Grid.Column="0" 
@@ -208,7 +209,8 @@
                                                        Margin="0,0,15,0"/>
                                             <TextBlock Text="{Binding CreatedAt, StringFormat='Erstellt: {0:dd.MM.yyyy HH:mm}'}" 
                                                        FontSize="12"
-                                                       Foreground="#95A5A6"/>
+                                                       Foreground="#95A5A6"
+                                                       Margin="0,0,15,0"/>
                                         </StackPanel>
                                     </StackPanel>
 
@@ -233,7 +235,24 @@
                                         </TextBlock.Style>
                                     </TextBlock>
 
-                                    <Button Grid.Column="3" 
+                                    <TextBlock Grid.Column="3" 
+                                               VerticalAlignment="Center"
+                                               Margin="15,0"
+                                               FontSize="16">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Text" Value=""/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsOverdue}" Value="True">
+                                                        <Setter Property="Text" Value="⚠️"/>
+                                                        <Setter Property="Foreground" Value="#E74C3C"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+
+                                    <Button Grid.Column="4" 
                                             Content="🗑️ Löschen" 
                                             Padding="10,5"
                                             Background="#E74C3C"
