@@ -13,7 +13,6 @@ namespace TaskManager
         public MainWindow()
         {
             InitializeComponent();
-
             _viewModel = new MainViewModel();
             DataContext = _viewModel;
         }
@@ -25,7 +24,6 @@ namespace TaskManager
 
         private void TitleTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            // Enter-Taste zum Hinzufügen von Aufgaben
             if (e.Key == Key.Enter)
             {
                 _viewModel.AddTask();
