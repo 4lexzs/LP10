@@ -94,21 +94,23 @@ Heute habe ich das UI-Design meiner App deutlich verbessert. Ich habe modernere 
 - [X] Fälligkeitsdaten hinzugefügt
 
 
-☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
-
+Heute habe ich die Suchfunktion fertig implementiert, sodass man Aufgaben nach Titel und Beschreibung filtern kann. Ausserdem habe ich Fälligkeitsdaten für Aufgaben hinzugefügt - überfällige Aufgaben werden automatisch rot hervorgehoben. Die App ist jetzt deutlich nützlicher für die tägliche Aufgabenverwaltung. Der Code wurde auf GitHub hochgeladen und die Datenbankstruktur entsprechend erweitert.
 ## 20.6
 
 Was fehlt Ihrem fertigen Projekt noch, um es auszuliefern? Reicht die Zeit für ein *nice-to-have feature*?
 
-- [ ] ...
+- [ ] Projekt dokumentieren und Screenshots erstellen für GitHub
+- [ ] Code-Kommentare und Dokumentation vervollständigen
+- [ ] Finale Tests und Bug-Fixes
+- [ ] Nice-to-have: Statistiken-Dashboard für Aufgaben
 
 Bereiten Sie in den verbleibenden 2 AP Ihre Präsentation vor
 
-- [ ] Materialien der Präsentation vorbereiten
-- [ ] Präsentation üben
+- [ ] Materialien der Präsentation vorbereiten (Demo, Screenshots, Code-Beispiele)
+- [ ] Präsentation üben und Struktur festlegen
 
 ✍️ Heute habe ich... (50-100 Wörter)
 
-☝️  Vergessen Sie nicht, die Unterlagen für Ihre Präsentation auf github hochzuladen.
+☝️ Vergessen Sie nicht, die Unterlagen für Ihre Präsentation auf github hochzuladen.
 
 ## 27.6
