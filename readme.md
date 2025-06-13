@@ -90,8 +90,8 @@ Heute habe ich das UI-Design meiner App deutlich verbessert. Ich habe modernere 
 
 ## 13.6
 
-- [ ] Suchfunktion implementiert
-- [ ] Fälligkeitsdaten hinzugefügt
+- [X] Suchfunktion implementiert
+- [X] Fälligkeitsdaten hinzugefügt
 
 
 ☝️  Vergessen Sie nicht, den Code von heute auf github hochzuladen.
