@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="📋 TaskManager - LP10 Projekt" Height="750" Width="1100"
+        Title="📋 Aufgaben-Manager" Height="700" Width="1000"
         Background="#F5F5F5">
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -18,64 +17,15 @@
 
         <!-- Header -->
         <Border Grid.Row="0" Background="#2C3E50" CornerRadius="10" Padding="20" Margin="0,0,0,15">
-            <StackPanel>
-                <TextBlock Text="📋 TaskManager - LP10 Abschlussprojekt" 
-                           FontSize="24" 
-                           FontWeight="Bold" 
-                           Foreground="White" 
-                           HorizontalAlignment="Center"/>
-                <TextBlock Text="Moderne WPF-Aufgabenverwaltung mit Entity Framework" 
-                           FontSize="12" 
-                           Foreground="#BDC3C7" 
-                           HorizontalAlignment="Center"
-                           Margin="0,5,0,0"/>
-            </StackPanel>
-        </Border>
-
-        <!-- Statistiken -->
-        <Border Grid.Row="1" Background="White" CornerRadius="10" Padding="15" Margin="0,0,0,15">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="3" ShadowDepth="1" Opacity="0.2"/>
-            </Border.Effect>
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel Grid.Column="0" HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding TotalTasks}" FontSize="24" FontWeight="Bold" Foreground="#3498DB" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Gesamt" FontSize="12" Foreground="#7F8C8D" HorizontalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding CompletedTasks}" FontSize="24" FontWeight="Bold" Foreground="#27AE60" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Erledigt" FontSize="12" Foreground="#7F8C8D" HorizontalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="2" HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding PendingTasks}" FontSize="24" FontWeight="Bold" Foreground="#F39C12" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Offen" FontSize="12" Foreground="#7F8C8D" HorizontalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="3" HorizontalAlignment="Center">
-                    <TextBlock Text="{Binding OverdueTasks}" FontSize="24" FontWeight="Bold" Foreground="#E74C3C" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Überfällig" FontSize="12" Foreground="#7F8C8D" HorizontalAlignment="Center"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="4" HorizontalAlignment="Center">
-                    <TextBlock Text="📊 Fortschritt" FontSize="14" FontWeight="Bold" Foreground="#2C3E50" HorizontalAlignment="Center"/>
-                    <TextBlock Text="{Binding ProgressText}" FontSize="12" Foreground="#7F8C8D" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                </StackPanel>
-            </Grid>
+            <TextBlock Text="📋 Mein Aufgaben-Manager" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"/>
         </Border>
 
         <!-- Eingabebereich für neue Aufgaben -->
-        <Border Grid.Row="2" Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15">
+        <Border Grid.Row="1" Background="White" CornerRadius="10" Padding="20" Margin="0,0,0,15">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.3"/>
             </Border.Effect>
@@ -148,7 +98,7 @@
         </Border>
 
         <!-- Filter- und Suchbereich -->
-        <Border Grid.Row="3" Background="White" CornerRadius="10" Padding="20">
+        <Border Grid.Row="2" Background="White" CornerRadius="10" Padding="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.3"/>
             </Border.Effect>
@@ -261,24 +211,6 @@
                                                        FontSize="12"
                                                        Foreground="#95A5A6"
                                                        Margin="0,0,15,0"/>
-                                            <TextBlock Text="{Binding DueDate, StringFormat='📅 Fällig: {0:dd.MM.yyyy}'}" 
-                                                       FontSize="12"
-                                                       Foreground="#E67E22">
-                                                <TextBlock.Style>
-                                                    <Style TargetType="TextBlock">
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding DueDate}" Value="{x:Null}">
-                                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                            </DataTrigger>
-                                                            <DataTrigger Binding="{Binding IsOverdue}" Value="True">
-                                                                <Setter Property="Text" Value="{Binding DueDate, StringFormat='⚠️ Überfällig: {0:dd.MM.yyyy}'}"/>
-                                                                <Setter Property="Foreground" Value="#E74C3C"/>
-                                                                <Setter Property="FontWeight" Value="Bold"/>
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </TextBlock.Style>
-                                            </TextBlock>
                                         </StackPanel>
                                     </StackPanel>
 
