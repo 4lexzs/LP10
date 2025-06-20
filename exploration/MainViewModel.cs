@@ -25,6 +25,9 @@ namespace TaskManager.ViewModels
             FilteredTasks = new ObservableCollection<TaskItem>();
             Categories = new ObservableCollection<string> { "Allgemein", "Arbeit", "Privat", "Shopping", "Lernen" };
             FilterCategories = new ObservableCollection<string> { "Alle", "Allgemein", "Arbeit", "Privat", "Shopping", "Lernen" };
+
+            // Sample data für Demo
+            AddSampleData();
         }
 
         // Collections
@@ -32,6 +35,13 @@ namespace TaskManager.ViewModels
         public ObservableCollection<TaskItem> FilteredTasks { get; }
         public ObservableCollection<string> Categories { get; }
         public ObservableCollection<string> FilterCategories { get; }
+
+        // Statistik Properties
+        public int TotalTasks => Tasks.Count;
+        public int CompletedTasks => Tasks.Count(t => t.IsCompleted);
+        public int PendingTasks => Tasks.Count(t => !t.IsCompleted);
+        public int OverdueTasks => Tasks.Count(t => t.IsOverdue);
+        public string ProgressText => $"{CompletedTasks} von {TotalTasks} erledigt";
 
         // Properties für neue Aufgabe
         public string NewTaskTitle
@@ -106,7 +116,7 @@ namespace TaskManager.ViewModels
         {
             if (string.IsNullOrWhiteSpace(NewTaskTitle))
             {
-                MessageBox.Show("Bitte geben Sie einen Titel für die Aufgabe ein.", 
+                MessageBox.Show("Bitte geben Sie einen Titel für die Aufgabe ein.",
                               "Fehler", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
@@ -133,6 +143,7 @@ namespace TaskManager.ViewModels
             NewTaskDueDate = null;
 
             FilterTasks();
+            UpdateStatistics();
         }
 
         public void DeleteTask(TaskItem task)
@@ -141,6 +152,7 @@ namespace TaskManager.ViewModels
             {
                 Tasks.Remove(task);
                 FilterTasks();
+                UpdateStatistics();
             }
         }
 
@@ -150,6 +162,7 @@ namespace TaskManager.ViewModels
             {
                 task.IsCompleted = !task.IsCompleted;
                 FilterTasks();
+                UpdateStatistics();
             }
         }
 
@@ -167,8 +180,8 @@ namespace TaskManager.ViewModels
             if (!string.IsNullOrWhiteSpace(SearchText))
             {
                 var searchLower = SearchText.ToLower();
-                filteredTasks = filteredTasks.Where(t => 
-                    t.Title.ToLower().Contains(searchLower) || 
+                filteredTasks = filteredTasks.Where(t =>
+                    t.Title.ToLower().Contains(searchLower) ||
                     (t.Description?.ToLower().Contains(searchLower) ?? false));
             }
 
@@ -183,6 +196,56 @@ namespace TaskManager.ViewModels
             {
                 FilteredTasks.Add(task);
             }
+        }
+
+        private void UpdateStatistics()
+        {
+            OnPropertyChanged(nameof(TotalTasks));
+            OnPropertyChanged(nameof(CompletedTasks));
+            OnPropertyChanged(nameof(PendingTasks));
+            OnPropertyChanged(nameof(OverdueTasks));
+            OnPropertyChanged(nameof(ProgressText));
+        }
+
+        private void AddSampleData()
+        {
+            // Demo-Daten für Präsentation
+            Tasks.Add(new TaskItem
+            {
+                Id = 1,
+                Title = "Willkommen bei TaskManager! 👋",
+                Description = "Dies ist eine Demo-Aufgabe. Sie können sie bearbeiten oder löschen.",
+                Category = "Allgemein",
+                Priority = 1,
+                CreatedAt = DateTime.Now.AddDays(-2),
+                IsCompleted = false
+            });
+
+            Tasks.Add(new TaskItem
+            {
+                Id = 2,
+                Title = "LP10 Präsentation vorbereiten",
+                Description = "Demo erstellen und Präsentation üben",
+                Category = "Arbeit",
+                Priority = 3,
+                DueDate = DateTime.Today.AddDays(1),
+                CreatedAt = DateTime.Now.AddDays(-1),
+                IsCompleted = false
+            });
+
+            Tasks.Add(new TaskItem
+            {
+                Id = 3,
+                Title = "Code auf GitHub hochladen",
+                Description = "Finalen Code committen und pushen",
+                Category = "Arbeit",
+                Priority = 2,
+                CreatedAt = DateTime.Now.AddHours(-3),
+                IsCompleted = true
+            });
+
+            FilterTasks();
+            UpdateStatistics();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
