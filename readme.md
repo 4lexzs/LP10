@@ -99,17 +99,17 @@ Heute habe ich die Suchfunktion fertig implementiert, sodass man Aufgaben nach T
 
 Was fehlt Ihrem fertigen Projekt noch, um es auszuliefern? Reicht die Zeit für ein *nice-to-have feature*?
 
-- [ ] Projekt dokumentieren und Screenshots erstellen für GitHub
-- [ ] Code-Kommentare und Dokumentation vervollständigen
-- [ ] Finale Tests und Bug-Fixes
-- [ ] Nice-to-have: Statistiken-Dashboard für Aufgaben
+- [X] Projekt dokumentieren und Screenshots erstellen für GitHub
+- [X] Code-Kommentare und Dokumentation vervollständigen
+- [X] Finale Tests und Bug-Fixes
+- [X] Nice-to-have: Statistiken-Dashboard für Aufgaben
 
 Bereiten Sie in den verbleibenden 2 AP Ihre Präsentation vor
 
-- [ ] Materialien der Präsentation vorbereiten (Demo, Screenshots, Code-Beispiele)
-- [ ] Präsentation üben und Struktur festlegen
+- [X] Materialien der Präsentation vorbereiten (Demo, Screenshots, Code-Beispiele)
+- [X] Präsentation üben und Struktur festlegen
 
-✍️ Heute habe ich... (50-100 Wörter)
+✍️ Heute habe ich mein TaskManager-Projekt erfolgreich abgeschlossen, indem ich ein Live-Statistiken Dashboard hinzugefügt und die GitHub-Dokumentation finalisiert habe. Außerdem habe ich meine Präsentation strukturiert und Demo-Daten vorbereitet. Das Projekt ist nun vollständig auslieferungsbereit mit allen Features und bereit für die finale Präsentation am 27.6.
 
 ☝️ Vergessen Sie nicht, die Unterlagen für Ihre Präsentation auf github hochzuladen.
 
