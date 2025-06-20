@@ -34,10 +34,6 @@ namespace TaskManager.Services
             modelBuilder.Entity<TaskItem>()
                 .Property(t => t.Priority)
                 .HasDefaultValue(1);
-
-            modelBuilder.Entity<TaskItem>()
-                .Property(t => t.DueDate)
-                .IsRequired(false);
         }
     }
 }
