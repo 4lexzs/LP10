@@ -6,38 +6,43 @@ namespace TaskManager.Services
 {
     public class TaskRepository : ITaskRepository
     {
+        private readonly TaskDbContext _context;
+
+        public TaskRepository()
+        {
+            _context = new TaskDbContext();
+            _context.Database.EnsureCreated();
+        }
+
         public List<TaskItem> GetAllTasks()
         {
-            using var context = new TaskDbContext();
-            context.Database.EnsureCreated();
-            return context.Tasks.ToList();
+            return _context.Tasks.ToList();
+        }
+
+        public TaskItem GetTaskById(int id)
+        {
+            return _context.Tasks.Find(id);
         }
 
         public void AddTask(TaskItem task)
         {
-            using var context = new TaskDbContext();
-            context.Database.EnsureCreated();
-            context.Tasks.Add(task);
-            context.SaveChanges();
+            _context.Tasks.Add(task);
+            _context.SaveChanges();
         }
 
         public void UpdateTask(TaskItem task)
         {
-            using var context = new TaskDbContext();
-            context.Database.EnsureCreated();
-            context.Tasks.Update(task);
-            context.SaveChanges();
+            _context.Tasks.Update(task);
+            _context.SaveChanges();
         }
 
         public void DeleteTask(int id)
         {
-            using var context = new TaskDbContext();
-            context.Database.EnsureCreated();
-            var task = context.Tasks.Find(id);
+            var task = _context.Tasks.Find(id);
             if (task != null)
             {
-                context.Tasks.Remove(task);
-                context.SaveChanges();
+                _context.Tasks.Remove(task);
+                _context.SaveChanges();
             }
         }
     }
